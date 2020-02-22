@@ -10,13 +10,14 @@
 
   <ion-item>
     <ion-label>Kilometer</ion-label>
-    <ion-input clearInput placeholder="km" type="number"></ion-input>
+    <ion-input clearInput placeholder="km" type="number" [(ngModel)]="eingabeKilometer"></ion-input>
   </ion-item>
 
   &nbsp;
 
   <ion-list>
-    <ion-radio-group value="englMeilen">
+
+    <ion-radio-group [(ngModel)]="zieleinheit">
 
       <ion-list-header>
         <ion-label>Umrechnen in:</ion-label>
@@ -24,7 +25,7 @@
   
       <ion-item>
         <ion-label>Englische Meilen</ion-label>
-        <ion-radio slot="start" value="englMeilen"></ion-radio>
+        <ion-radio slot="start" value="englischeMeilen"></ion-radio>
       </ion-item>
   
       <ion-item>
@@ -34,9 +35,11 @@
   
       <ion-item>
         <ion-label>Chinesische Meilen</ion-label>
-        <ion-radio slot="start" value="chinMeilen"></ion-radio>
+        <ion-radio slot="start" value="chinesischeMeilen"></ion-radio>
       </ion-item>
+
     </ion-radio-group>
+
   </ion-list>
   
   &nbsp;
