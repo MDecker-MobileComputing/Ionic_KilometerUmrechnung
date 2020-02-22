@@ -9,4 +9,12 @@ export class HomePage {
 
   constructor() {}
 
+  /**
+   * Button-Event-Handler für Umrechnung
+   */
+  onBerechnenButton() {
+
+    console.log("Umrechnung-Button wurde gedrückt.");
+  }
+
 }

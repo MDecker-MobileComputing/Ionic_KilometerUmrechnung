@@ -1,20 +1,46 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Umrechnung Kilometer in Meilen
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-item>
+    <ion-label>Kilometer</ion-label>
+    <ion-input clearInput placeholder="km" type="number"></ion-input>
+  </ion-item>
+
+  &nbsp;
+
+  <ion-list>
+    <ion-radio-group value="englMeilen">
+
+      <ion-list-header>
+        <ion-label>Umrechnen in:</ion-label>
+      </ion-list-header>
+  
+      <ion-item>
+        <ion-label>Englische Meilen</ion-label>
+        <ion-radio slot="start" value="englMeilen"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Seemeilen</ion-label>
+        <ion-radio slot="start" value="seeMeilen"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Chinesische Meilen</ion-label>
+        <ion-radio slot="start" value="chinMeilen"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  
+  &nbsp;
+  
+  <ion-button expand="block" (click)="onBerechnenButton()">Umrechnen</ion-button>
+  
 </ion-content>
