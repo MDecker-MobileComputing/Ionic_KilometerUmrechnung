@@ -1,5 +1,7 @@
 {
   "name": "KilometerUmrechnung",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
