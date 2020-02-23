@@ -77,9 +77,7 @@ export class HomePage {
 
     ergebnisMeilen = this.kommastellenAbschneiden(ergebnisMeilen, 2);
 
-
-   this.navCtrl.navigateForward(`/ergebnis?ergebnisMeilen=${ergebnisMeilen}&ergebnisEinheit=${ergebnisEinheit}&eingabeKilometer=${eingabeKilometerNumber}`);
-  //this.router.navigate(["ergebnis"], ergebnisExtras);
+    this.navCtrl.navigateForward(`/ergebnis?ergebnisMeilen=${ergebnisMeilen}&ergebnisEinheit=${ergebnisEinheit}&eingabeKilometer=${eingabeKilometerNumber}`);
   }
 
 

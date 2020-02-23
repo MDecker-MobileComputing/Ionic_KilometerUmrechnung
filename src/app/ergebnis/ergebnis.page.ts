@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './ergebnis.page.html',
   styleUrls: ['./ergebnis.page.scss'],
 })
-export class ErgebnisPage implements OnInit {
+export class ErgebnisPage {
 
   /** Wird auf Seite mit {{eingabeKilometer}} referenziert. */
   eingabeKilometer: string;
@@ -19,15 +19,13 @@ export class ErgebnisPage implements OnInit {
 
 
   /**
-   * Konstruktor zum Empfang des Berechnungs-Ergebnis in Form von Extras.
+   * Konstruktor zum Auslesen des Berechnungs-Ergebnisses aus den URL-Parametern.
    */
   constructor(private activatedRoute: ActivatedRoute) {
 
-    this.ergebnisMeilen   = activatedRoute.snapshot.queryParamMap.get("ergebnisMeilen"  );
-    this.ergebnisEinheit  = activatedRoute.snapshot.queryParamMap.get("ergebnisEinheit" );
-    this.eingabeKilometer = activatedRoute.snapshot.queryParamMap.get("eingabeKilometer");
+    this.ergebnisMeilen   = activatedRoute.snapshot.queryParamMap.get( "ergebnisMeilen"   ) ;
+    this.ergebnisEinheit  = activatedRoute.snapshot.queryParamMap.get( "ergebnisEinheit"  );
+    this.eingabeKilometer = activatedRoute.snapshot.queryParamMap.get( "eingabeKilometer" );
   }
-
-  ngOnInit(): void {}
 
 }
