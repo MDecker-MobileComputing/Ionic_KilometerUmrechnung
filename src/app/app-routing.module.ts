@@ -11,10 +11,6 @@ const routes: Routes = [
   },
   { path: 'ergebnis',
     loadChildren: () => import('./ergebnis/ergebnis.module').then( m => m.ErgebnisPageModule )
-  },
-  {
-    path: 'ergebnis',
-    loadChildren: () => import('./ergebnis/ergebnis.module').then( m => m.ErgebnisPageModule )
   }
 ];
 
