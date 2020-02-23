@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ergebnis',
@@ -23,7 +23,7 @@ export class ErgebnisPage {
    */
   constructor(private activatedRoute: ActivatedRoute) {
 
-    this.ergebnisMeilen   = activatedRoute.snapshot.queryParamMap.get( "ergebnisMeilen"   ) ;
+    this.ergebnisMeilen   = activatedRoute.snapshot.queryParamMap.get( "ergebnisMeilen"   );
     this.ergebnisEinheit  = activatedRoute.snapshot.queryParamMap.get( "ergebnisEinheit"  );
     this.eingabeKilometer = activatedRoute.snapshot.queryParamMap.get( "eingabeKilometer" );
   }
