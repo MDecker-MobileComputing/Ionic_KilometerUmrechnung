@@ -8,28 +8,26 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ErgebnisPage implements OnInit {
 
-  ngOnInit(): void {}
+  /** Wird auf Seite mit {{eingabeKilometer}} referenziert. */
+  eingabeKilometer: string;
 
-  ergebnisMeilen: Number;
+  /** Wird auf Seite mit {{ergebnisMeilen}} referenziert. */
+  ergebnisMeilen: string;
 
-  ergebnisEinheit: String;
+  /** Wird auf Seite mit {{ergebnisEinheit}} referenziert. */
+  ergebnisEinheit: string;
 
 
-  /** Konstruktor zum Empfang des Berechnungs-Ergebnis in Form von Extras */
-  constructor(private route: ActivatedRoute, private router: Router) {
+  /**
+   * Konstruktor zum Empfang des Berechnungs-Ergebnis in Form von Extras.
+   */
+  constructor(private activatedRoute: ActivatedRoute) {
 
-    this.route.queryParams.subscribe(params => {
-
-      if (this.router.getCurrentNavigation().extras.state) {
-
-        this.ergebnisMeilen  = this.router.getCurrentNavigation().extras.state.ergebnisMeilen;
-        this.ergebnisEinheit = this.router.getCurrentNavigation().extras.state.ergebnisEinheit;
-
-        console.log(`Ergebnis empfangen: ${this.ergebnisMeilen} ${this.ergebnisEinheit}`);
-      }
-    });
-
-    
+    this.ergebnisMeilen   = activatedRoute.snapshot.queryParamMap.get("ergebnisMeilen"  );
+    this.ergebnisEinheit  = activatedRoute.snapshot.queryParamMap.get("ergebnisEinheit" );
+    this.eingabeKilometer = activatedRoute.snapshot.queryParamMap.get("eingabeKilometer");
   }
+
+  ngOnInit(): void {}
 
 }

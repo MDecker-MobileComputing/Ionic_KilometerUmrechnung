@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { Router, NavigationExtras } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { Router, NavigationExtras } from '@angular/router';
 export class HomePage {
 
   readonly UMRECHNUNGSFAKTOR_MEILEN_ENGLISCH = 1.609344;
-  
+
   readonly UMRECHNUNGSFAKTOR_MEILEN_NAUTISCH = 1.852;
 
   readonly UMRECHNUNGSFAKTOR_MEILEN_CHINESISCH = 0.5
@@ -26,7 +26,7 @@ export class HomePage {
 
   /** Konstruktor für Dependency Injection. */
   constructor(private alertCtrl: AlertController,
-              private router   : Router   ) {}
+              private navCtrl  : NavController   ) {}
 
 
   /**
@@ -46,12 +46,12 @@ export class HomePage {
     if (eingabeKilometerNumber <= 0.0) {
 
       await this.zeigeDialog("Kilometer-Wert darf nicht kleiner-gleich Null sein.");
-      return;                                  
+      return;
     }
 
 
-    let ergebnisMeilen  : Number = 0.0;
-    let ergebnisEinheit : String
+    let ergebnisMeilen  : number = 0.0;
+    let ergebnisEinheit : String;
 
     switch(this.zieleinheit) {
 
@@ -70,19 +70,16 @@ export class HomePage {
         ergebnisEinheit = "Chinesische Meilen";
       break;
 
-      default: 
+      default:
         await this.zeigeDialog(`Interner Fehler: Unerwartete Zieleinheit "${this.zieleinheit}".`);
         return
     }
 
-    // Navigation zur Ergebnis-Seite nach https://ionicacademy.com/pass-data-angular-router-ionic-4/
-    let ergebnisExtras: NavigationExtras = {
-      state: {
-        ergebnisMeilen:  ergebnisMeilen,
-        ergebnisEinheit: ergebnisEinheit
-      }
-    };
-    this.router.navigate(["ergebnis"], ergebnisExtras);
+    ergebnisMeilen = this.kommastellenAbschneiden(ergebnisMeilen, 2);
+
+
+   this.navCtrl.navigateForward(`/ergebnis?ergebnisMeilen=${ergebnisMeilen}&ergebnisEinheit=${ergebnisEinheit}&eingabeKilometer=${eingabeKilometerNumber}`);
+  //this.router.navigate(["ergebnis"], ergebnisExtras);
   }
 
 
@@ -90,13 +87,41 @@ export class HomePage {
    * Alert anzeigen, siehe auch https://ionicframework.com/docs/api/alert
    */
   async zeigeDialog(nachricht: string) {
-   
-    const meinAlert = 
+
+    const meinAlert =
           await this.alertCtrl.create({header  : "Fehler",
                                        message : nachricht,
                                        buttons : [ "Ok" ]
-                                      }); 
+                                      });
     await meinAlert.present();
-  }  
+  }
+
+
+  /**
+   * Hilfs-Methode zum Abschneiden von Nachkomma-Stellen
+   * nach https://stackoverflow.com/a/9232092
+   *
+   * @param number  Dezimalzahl
+   * @param nachkommastellen  Anzahl Nachkommastellen, die übrig bleiben soll.
+   */
+  kommastellenAbschneiden(zahl: number, nachkommastellen: number): number {
+
+    let faktor = Math.pow(10, nachkommastellen);
+
+    let zahlMalFaktor = zahl * faktor;
+
+    let zahlAbgeschnitten = 0.0;
+
+    if ( zahlMalFaktor < 0 ) {
+
+      zahlAbgeschnitten = Math.ceil(zahlMalFaktor);
+
+    } else {
+
+      zahlAbgeschnitten = Math.floor(zahlMalFaktor);
+    }
+
+    return zahlAbgeschnitten / faktor;
+  }
 
 }
