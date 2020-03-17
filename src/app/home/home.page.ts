@@ -77,7 +77,8 @@ export class HomePage {
 
     ergebnisMeilen = this.kommastellenAbschneiden(ergebnisMeilen, 2);
 
-    this.navCtrl.navigateForward(`/ergebnis?ergebnisMeilen=${ergebnisMeilen}&ergebnisEinheit=${ergebnisEinheit}&eingabeKilometer=${eingabeKilometerNumber}`);
+    let navigationTarget = `/ergebnis?ergebnisMeilen=${ergebnisMeilen}&ergebnisEinheit=${ergebnisEinheit}&eingabeKilometer=${eingabeKilometerNumber}`;
+    this.navCtrl.navigateForward(navigationTarget);
   }
 
 
@@ -87,9 +88,9 @@ export class HomePage {
   async zeigeDialog(nachricht: string) {
 
     const meinAlert =
-          await this.alertCtrl.create({header  : "Fehler",
-                                       message : nachricht,
-                                       buttons : [ "Ok" ]
+          await this.alertCtrl.create({ header  : "Fehler",
+                                        message : nachricht,
+                                        buttons : [ "Ok" ]
                                       });
     await meinAlert.present();
   }
