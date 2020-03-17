@@ -18,10 +18,10 @@ export class HomePage {
 
 
   /** Way-Way-Binding definiert mit [(ngModel)]="eingabeKilometer" */
-  private eingabeKilometer : String = "";
+  private eingabeKilometer : string = "";
 
   /** Two-Way-Binding definiert in ion-radio-group mit [(ngModel)]="zieleinheit" */
-  private zieleinheit : any = "englischeMeilen";
+  private zieleinheit : string = "englischeMeilen";
 
 
   /** Konstruktor für Dependency Injection. */
