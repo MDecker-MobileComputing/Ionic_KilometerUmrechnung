@@ -51,7 +51,7 @@ export class HomePage {
 
 
     let ergebnisMeilen  : number = 0.0;
-    let ergebnisEinheit : String;
+    let ergebnisEinheit : string;
 
     switch(this.zieleinheit) {
 
