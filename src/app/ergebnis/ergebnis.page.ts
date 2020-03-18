@@ -9,13 +9,13 @@ import { ActivatedRoute } from '@angular/router';
 export class ErgebnisPage {
 
   /** Wird auf Seite mit {{eingabeKilometer}} referenziert. */
-  eingabeKilometer: string;
+  private eingabeKilometer: string;
 
   /** Wird auf Seite mit {{ergebnisMeilen}} referenziert. */
-  ergebnisMeilen: string;
+  private ergebnisMeilen: string;
 
   /** Wird auf Seite mit {{ergebnisEinheit}} referenziert. */
-  ergebnisEinheit: string;
+  private ergebnisEinheit: string;
 
 
   /**
