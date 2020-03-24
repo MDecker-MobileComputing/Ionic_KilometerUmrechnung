@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController } from '@ionic/angular';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 
 @Component({
@@ -25,8 +24,8 @@ export class HomePage {
 
 
   /** Konstruktor für Dependency Injection. */
-  constructor(private alertCtrl: AlertController,
-              private navCtrl  : NavController   ) {}
+  constructor( private alertCtrl: AlertController,
+               private navCtrl  : NavController   ) {}
 
 
   /**
@@ -36,7 +35,7 @@ export class HomePage {
 
     if (this.eingabeKilometer === null || this.eingabeKilometer.length === 0) {
 
-      await this.zeigeDialog("Bitte Kilometer-Wert eingeben!");
+      await this.zeigeFehlerDialog("Bitte Kilometer-Wert eingeben!");
       return;
     }
 
@@ -45,7 +44,7 @@ export class HomePage {
 
     if (eingabeKilometerNumber <= 0.0) {
 
-      await this.zeigeDialog("Kilometer-Wert darf nicht kleiner-gleich Null sein.");
+      await this.zeigeFehlerDialog("Kilometer-Wert darf nicht kleiner-gleich Null sein.");
       return;
     }
 
@@ -71,8 +70,8 @@ export class HomePage {
       break;
 
       default:
-        await this.zeigeDialog(`Interner Fehler: Unerwartete Zieleinheit "${this.zieleinheit}".`);
-        return
+        await this.zeigeFehlerDialog(`Interner Fehler: Unerwartete Zieleinheit "${this.zieleinheit}".`);
+        return;
     }
 
     ergebnisMeilen = this.kommastellenAbschneiden(ergebnisMeilen, 2);
@@ -85,7 +84,7 @@ export class HomePage {
   /**
    * Alert anzeigen, siehe auch https://ionicframework.com/docs/api/alert
    */
-  async zeigeDialog(nachricht: string) {
+  async zeigeFehlerDialog(nachricht: string) {
 
     const meinAlert =
           await this.alertCtrl.create({ header  : "Fehler",
