@@ -16,7 +16,7 @@ export class HomePage {
   readonly UMRECHNUNGSFAKTOR_MEILEN_CHINESISCH = 0.5
 
 
-  /** Way-Way-Binding definiert mit [(ngModel)]="eingabeKilometer" */
+  /** Two-Way-Way-Binding definiert mit [(ngModel)]="eingabeKilometer" */
   private eingabeKilometer : string = "";
 
   /** Two-Way-Binding definiert in ion-radio-group mit [(ngModel)]="zieleinheit" */
@@ -41,7 +41,6 @@ export class HomePage {
 
     // Wegen type="number" ist this.eingabeKilometer immer vom Typ "Number"
     let eingabeKilometerNumber : number = Number(this.eingabeKilometer);
-
     if (eingabeKilometerNumber <= 0.0) {
 
       await this.zeigeFehlerDialog("Kilometer-Wert darf nicht kleiner-gleich Null sein.");
@@ -52,7 +51,7 @@ export class HomePage {
     let ergebnisMeilen  : number = 0.0;
     let ergebnisEinheit : string;
 
-    switch(this.zieleinheit) {
+    switch (this.zieleinheit) {
 
       case "englischeMeilen":
         ergebnisMeilen  = eingabeKilometerNumber / this.UMRECHNUNGSFAKTOR_MEILEN_ENGLISCH;
@@ -66,7 +65,7 @@ export class HomePage {
 
       case "chinesischeMeilen":
         ergebnisMeilen  = eingabeKilometerNumber / this.UMRECHNUNGSFAKTOR_MEILEN_CHINESISCH;
-        ergebnisEinheit = "Chinesische Meilen";
+        ergebnisEinheit = "chin. Meilen";
       break;
 
       default:
@@ -82,7 +81,7 @@ export class HomePage {
 
 
   /**
-   * Alert anzeigen, siehe auch https://ionicframework.com/docs/api/alert
+   * Alert (Dialog) mit Fehler anzeigen, siehe auch https://ionicframework.com/docs/api/alert
    */
   async zeigeFehlerDialog(nachricht: string) {
 
@@ -96,10 +95,10 @@ export class HomePage {
 
 
   /**
-   * Hilfs-Methode zum Abschneiden von Nachkomma-Stellen
+   * Hilfs-Methode zum Abschneiden von Nachkommastellen
    * nach https://stackoverflow.com/a/9232092
    *
-   * @param number  Dezimalzahl
+   * @param number  Dezimalzahl, von der Nachkommastellen abgeschnitten werden sollen.
    * @param nachkommastellen  Anzahl Nachkommastellen, die übrig bleiben soll.
    */
   kommastellenAbschneiden(zahl: number, nachkommastellen: number): number {
