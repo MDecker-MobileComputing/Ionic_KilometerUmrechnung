@@ -23,10 +23,11 @@ export class HomePage {
   private zieleinheit : string = "englischeMeilen";
 
 
-  /** Konstruktor für Dependency Injection. */
+  /** 
+   * Konstruktor für Dependency Injection. 
+   */
   constructor( private alertCtrl: AlertController,
                private navCtrl  : NavController   ) {}
-
 
   /**
    * Button-Event-Handler für Umrechnung

@@ -1,7 +1,6 @@
 {
   "name": "KilometerUmrechnung",
   "integrations": {
-    "cordova": {},
     "capacitor": {}
   },
   "type": "angular"
