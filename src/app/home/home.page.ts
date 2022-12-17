@@ -17,20 +17,20 @@ export class HomePage {
 
 
   /** Two-Way-Way-Binding definiert mit [(ngModel)]="eingabeKilometer" */
-  private eingabeKilometer : string = "";
+  private eingabeKilometer = "";
 
   /** Two-Way-Binding definiert in ion-radio-group mit [(ngModel)]="zieleinheit" */
-  private zieleinheit : string = "englischeMeilen";
+  private zieleinheit = "englischeMeilen";
 
 
-  /** 
-   * Konstruktor für Dependency Injection. 
+  /**
+   * Konstruktor für Dependency Injection.
    */
   constructor( private alertCtrl: AlertController,
                private navCtrl  : NavController   ) {}
 
   /**
-   * Button-Event-Handler für Umrechnung
+   * Button-Event-Handler für Umrechnung@eslint/config
    */
   async onBerechnenButton() {
 
@@ -41,7 +41,7 @@ export class HomePage {
     }
 
     // Wegen type="number" ist this.eingabeKilometer immer vom Typ "Number"
-    let eingabeKilometerNumber : number = Number(this.eingabeKilometer);
+    const eingabeKilometerNumber = Number(this.eingabeKilometer);
     if (eingabeKilometerNumber <= 0.0) {
 
       await this.zeigeFehlerDialog("Kilometer-Wert darf nicht kleiner-gleich Null sein.");
@@ -49,8 +49,8 @@ export class HomePage {
     }
 
 
-    let ergebnisMeilen  : number = 0.0;
-    let ergebnisEinheit : string;
+    let ergebnisMeilen  = 0.0;
+    let ergebnisEinheit = "";
 
     switch (this.zieleinheit) {
 
@@ -76,7 +76,7 @@ export class HomePage {
 
     ergebnisMeilen = this.kommastellenAbschneiden(ergebnisMeilen, 2);
 
-    let navigationTarget = `/ergebnis?ergebnisMeilen=${ergebnisMeilen}&ergebnisEinheit=${ergebnisEinheit}&eingabeKilometer=${eingabeKilometerNumber}`;
+    const navigationTarget = `/ergebnis?ergebnisMeilen=${ergebnisMeilen}&ergebnisEinheit=${ergebnisEinheit}&eingabeKilometer=${eingabeKilometerNumber}`;
     this.navCtrl.navigateForward(navigationTarget);
   }
 
@@ -104,9 +104,9 @@ export class HomePage {
    */
   kommastellenAbschneiden(zahl: number, nachkommastellen: number): number {
 
-    let faktor = Math.pow(10, nachkommastellen);
+    const faktor = Math.pow(10, nachkommastellen);
 
-    let zahlMalFaktor = zahl * faktor;
+    const zahlMalFaktor = zahl * faktor;
 
     let zahlAbgeschnitten = 0.0;
 
