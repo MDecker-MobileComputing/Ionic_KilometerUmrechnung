@@ -1,5 +1,7 @@
 # Ionic-App "Kilometer-Umrechung" #
 
+<br>
+
 Simple app with [Ionic 5](https://ionicframework.com) to convert a value in Kilometers into different types of miles.
 
 <br>
@@ -9,7 +11,10 @@ For a variant of this app as native app see [this repository](https://github.com
 <br>
 
 ----
+
 ## Screenshots ##
+
+<br>
 
 ![Screenshot 1](screenshot_1.png)  ![Screenshot 2](screenshot_2.png)
 
