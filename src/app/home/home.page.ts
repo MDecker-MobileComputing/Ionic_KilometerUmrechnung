@@ -17,10 +17,10 @@ export class HomePage {
 
 
   /** Two-Way-Way-Binding definiert mit [(ngModel)]="eingabeKilometer" */
-  private eingabeKilometer = "";
+  public eingabeKilometer = "";
 
   /** Two-Way-Binding definiert in ion-radio-group mit [(ngModel)]="zieleinheit" */
-  private zieleinheit = "englischeMeilen";
+  public zieleinheit = "englischeMeilen";
 
 
   /**
@@ -28,6 +28,7 @@ export class HomePage {
    */
   constructor( private alertCtrl: AlertController,
                private navCtrl  : NavController   ) {}
+
 
   /**
    * Button-Event-Handler für Umrechnung@eslint/config
