@@ -21,7 +21,12 @@ For a variant of this app as native app see [this repository](https://github.com
 <br>
 
 ----
+
 ## License ##
+
+<br>
 
 See the [LICENSE file](LICENSE.md) for license rights and limitations (BSD 3-Clause License)
 for the files in this repository.
+
+<br>
