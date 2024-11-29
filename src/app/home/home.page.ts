@@ -35,17 +35,17 @@ export class HomePage {
    */
   async onBerechnenButton() {
 
-    if (this.eingabeKilometer === null || this.eingabeKilometer.length === 0) {
+    if ( this.eingabeKilometer === null || this.eingabeKilometer.length === 0 ) {
 
-      await this.zeigeFehlerDialog("Bitte Kilometer-Wert eingeben!");
+      await this.zeigeFehlerDialog( "Bitte Kilometer-Wert eingeben!" );
       return;
     }
 
     // Wegen type="number" ist this.eingabeKilometer immer vom Typ "Number"
-    const eingabeKilometerNumber = Number(this.eingabeKilometer);
-    if (eingabeKilometerNumber <= 0.0) {
+    const eingabeKilometerNumber = Number( this.eingabeKilometer );
+    if (eingabeKilometerNumber  <= 0.0 ) {
 
-      await this.zeigeFehlerDialog("Kilometer-Wert darf nicht kleiner-gleich Null sein.");
+      await this.zeigeFehlerDialog( "Kilometer-Wert darf nicht kleiner-gleich Null sein." );
       return;
     }
 
@@ -53,7 +53,7 @@ export class HomePage {
     let ergebnisMeilen  = 0.0;
     let ergebnisEinheit = "";
 
-    switch (this.zieleinheit) {
+    switch ( this.zieleinheit ) {
 
       case "englischeMeilen":
         ergebnisMeilen  = eingabeKilometerNumber / this.UMRECHNUNGSFAKTOR_MEILEN_ENGLISCH;
@@ -71,21 +71,21 @@ export class HomePage {
       break;
 
       default:
-        await this.zeigeFehlerDialog(`Interner Fehler: Unerwartete Zieleinheit "${this.zieleinheit}".`);
+        await this.zeigeFehlerDialog( `Interner Fehler: Unerwartete Zieleinheit "${this.zieleinheit}".` );
         return;
     }
 
-    ergebnisMeilen = this.kommastellenAbschneiden(ergebnisMeilen, 2);
+    ergebnisMeilen = this.kommastellenAbschneiden( ergebnisMeilen, 2 );
 
     const navigationTarget = `/ergebnis?ergebnisMeilen=${ergebnisMeilen}&ergebnisEinheit=${ergebnisEinheit}&eingabeKilometer=${eingabeKilometerNumber}`;
-    this.navCtrl.navigateForward(navigationTarget);
+    this.navCtrl.navigateForward( navigationTarget );
   }
 
 
   /**
    * Alert (Dialog) mit Fehler anzeigen, siehe auch https://ionicframework.com/docs/api/alert
    */
-  async zeigeFehlerDialog(nachricht: string) {
+  async zeigeFehlerDialog( nachricht: string ) {
 
     const meinAlert =
           await this.alertCtrl.create({ header  : "Fehler",
@@ -103,9 +103,9 @@ export class HomePage {
    * @param number  Dezimalzahl, von der Nachkommastellen abgeschnitten werden sollen.
    * @param nachkommastellen  Anzahl Nachkommastellen, die übrig bleiben soll.
    */
-  kommastellenAbschneiden(zahl: number, nachkommastellen: number): number {
+  kommastellenAbschneiden( zahl: number, nachkommastellen: number ): number {
 
-    const faktor = Math.pow(10, nachkommastellen);
+    const faktor = Math.pow( 10, nachkommastellen );
 
     const zahlMalFaktor = zahl * faktor;
 
@@ -113,11 +113,11 @@ export class HomePage {
 
     if ( zahlMalFaktor < 0 ) {
 
-      zahlAbgeschnitten = Math.ceil(zahlMalFaktor);
+      zahlAbgeschnitten = Math.ceil( zahlMalFaktor );
 
     } else {
 
-      zahlAbgeschnitten = Math.floor(zahlMalFaktor);
+      zahlAbgeschnitten = Math.floor( zahlMalFaktor );
     }
 
     return zahlAbgeschnitten / faktor;

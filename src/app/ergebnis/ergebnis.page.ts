@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-ergebnis',
   templateUrl: './ergebnis.page.html',
@@ -21,7 +22,7 @@ export class ErgebnisPage {
   /**
    * Konstruktor zum Auslesen des Berechnungs-Ergebnisses aus den URL-Parametern.
    */
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor( private activatedRoute: ActivatedRoute ) {
 
     this.ergebnisMeilen   = activatedRoute.snapshot.queryParamMap.get( "ergebnisMeilen"   );
     this.ergebnisEinheit  = activatedRoute.snapshot.queryParamMap.get( "ergebnisEinheit"  );
