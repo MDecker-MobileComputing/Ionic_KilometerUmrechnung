@@ -2,7 +2,7 @@
 
 <br>
 
-Simple app with [Ionic 5](https://ionicframework.com) to convert a value in Kilometers into different types of miles.
+Simple app with [Ionic](https://ionicframework.com) to convert a value in Kilometers into different types of miles.
 
 <br>
 
