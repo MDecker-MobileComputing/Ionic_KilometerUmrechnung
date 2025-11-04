@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-ergebnis',
   templateUrl: './ergebnis.page.html',
   styleUrls: ['./ergebnis.page.scss'],
+  standalone: false
 })
 export class ErgebnisPage {
 
