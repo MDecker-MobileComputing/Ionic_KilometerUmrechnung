@@ -2,11 +2,11 @@
 
 <br>
 
-Simple app with [Ionic](https://ionicframework.com) to convert a value in Kilometers into different types of miles.
+Einfache App mit [Ionic](https://ionicframework.com), um einen Wert in Kilometern in verschiedene Meileneinheiten umzurechnen.
 
 <br>
 
-For a variant of this app as native app see [this repository](https://github.com/MDecker-MobileComputing/Android_KilometerUmrechnung).
+Eine Variante dieser App als native Anwendung finden Sie in [diesem Repository](https://github.com/MDecker-MobileComputing/Android_KilometerUmrechnung).
 
 <br>
 

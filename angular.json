@@ -65,6 +65,13 @@
               "sourceMap": true,
               "namedChunks": true
             },
+            "github-pages": {
+              "baseHref": "https://github.com/MDecker-MobileComputing/Ionic_KilometerUmrechnung",
+              "outputPath": {
+                "base": "docs",
+                "browser": ""
+              }
+            },
             "ci": {
               "progress": false
             }
