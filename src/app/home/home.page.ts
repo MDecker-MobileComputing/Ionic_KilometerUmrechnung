@@ -44,7 +44,7 @@ export class HomePage {
 
     // Wegen type="number" ist this.eingabeKilometer immer vom Typ "Number"
     const eingabeKilometerNumber = Number( this.eingabeKilometer );
-    if (eingabeKilometerNumber  <= 0.0 ) {
+    if ( eingabeKilometerNumber  <= 0.0 ) {
 
       await this.zeigeFehlerDialog( "Kilometer-Wert darf nicht kleiner-gleich Null sein." );
       return;
